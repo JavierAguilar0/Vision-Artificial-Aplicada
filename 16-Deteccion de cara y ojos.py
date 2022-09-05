@@ -11,12 +11,12 @@ while 1:
     
     for (x,y,w,h) in caras:
         cv2.rectangle(imagen,(x,y),(x+w,y+h),(255,0,0),2)
-        roi_gris=gris[y:y+h, x:x+w]
+        roi_gris=gris[y:y+h,x:x+w]
         roi_color=imagen[y:y+h,x:x+w]
 
         ojos=cascade_ojo.detectMultiScale(roi_gris)
         for (ex,ey,ew,eh) in ojos:
-            cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+            cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(255,0,255),2)
 
     cv2.imshow('imagen',imagen)
     if cv2.waitKey(1)&0xFF==ord('c'):
